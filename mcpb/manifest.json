@@ -27,6 +27,7 @@
     { "name": "browser_save", "description": "Save a picture, a video or a linked file into the site's downloads folder." },
     { "name": "browser_screenshot", "description": "Take an image of the page." },
     { "name": "browser_allow", "description": "Ask the person to let the site reach more hosts, up to ten at once." },
+    { "name": "browser_deny", "description": "Ask the person to stop the site reaching hosts it reaches now, up to ten at once." },
     { "name": "browser_close", "description": "End the site's browser. The login stays saved." }
   ],
   "compatibility": { "platforms": ["linux"] }

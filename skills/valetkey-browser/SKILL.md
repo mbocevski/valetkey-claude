@@ -13,7 +13,7 @@ The browser is signed in as the user, on one site, and can reach only the hosts 
    site by the exact name it lists: `site`, or `site:account` when it has several accounts. Never
    guess an account. Once a site has two accounts, a bare name is refused with
    `ambiguous_account`, and the first account is `site:main`. The first line of each result names
-   the account that acted.
+   the account that acted. To see one site's complete host lists, call `browser_sites` with `site`.
    If the site is not listed and the user wants it, call `browser_login` with the site's host or
    URL. The user signs in on their own screen. To add another account to a site, pass `account`
    (a label such as `work`) to `browser_login`.
@@ -31,9 +31,12 @@ The browser is signed in as the user, on one site, and can reach only the hosts 
    allow. Only the user can say yes. Each host gets its own result. If it is `denied`, never ask
    for that host again. If it is `could_not_ask`, give the user the `valetkey allow` command from
    the message.
-7. For a valetkey site, never fetch its pages or files with other tools, such as `curl`, `wget`,
+7. Call `browser_deny` only when the user asks to block a host, or a host looks wrong. Never use
+   it to work around anything. Ask for exact host names, with a real reason. If a host's result is
+   `declined`, never ask for that host again.
+8. For a valetkey site, never fetch its pages or files with other tools, such as `curl`, `wget`,
    a web fetch tool or another browser. That goes around the containment. If valetkey cannot do
    it, say so and stop. To save a picture or file, call `browser_snapshot` with `images` set to
    list pictures with their addresses, then `browser_save` with an address or an element reference.
    Saved files land in the site's downloads folder.
-8. When the task is done, call `browser_close` for the site. The login stays saved.
+9. When the task is done, call `browser_close` for the site. The login stays saved.
