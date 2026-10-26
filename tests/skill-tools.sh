@@ -1,6 +1,6 @@
 #!/bin/sh
 # SPDX-License-Identifier: Apache-2.0
-# Fail when a skill or command names a browser_* tool that valetkey does not have.
+# Fail when a skill, command or the bundle manifest names a browser_* tool that valetkey does not have.
 # The tool names come from valetkey's mcp_server.py: $VALETKEY_SRC, or ~/dev/valetkey.
 # Skipped, with a note, when that checkout is not there.
 set -eu
@@ -28,5 +28,11 @@ for name in $names; do
 		status=1
 	fi
 done
-[ "$status" -eq 0 ] && echo "ok: every tool named in skills and commands exists"
+# The bundle manifest must list exactly valetkey's tools.
+listed=$(jq -r '.tools[].name' "$root/mcpb/manifest.json" | sort)
+if [ "$listed" != "$(printf '%s\n' "$known" | sort)" ]; then
+	echo "fail: mcpb/manifest.json tools differ from valetkey's"
+	status=1
+fi
+[ "$status" -eq 0 ] && echo "ok: tool names match valetkey"
 exit "$status"
