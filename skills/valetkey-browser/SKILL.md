@@ -18,7 +18,7 @@ The browser is signed in as the user, on one site, and can reach only the hosts 
    URL. The user signs in on their own screen. To add another account to a site, pass `account`
    (a label such as `work`) to `browser_login`.
 2. Call `browser_open` for the site, then `browser_snapshot` to read it. Use `browser_click`,
-   `browser_type` and `browser_navigate` to act, and `browser_downloads` to find saved files.
+   `browser_type` and `browser_navigate` to act, and `browser_downloads` to list saved files.
 3. If `browser_open` says the login expired, or a page shows a login screen, call `browser_login`
    for that site without asking first. The user signs in again on their own screen. Then open it
    again.
@@ -31,5 +31,7 @@ The browser is signed in as the user, on one site, and can reach only the hosts 
    `valetkey allow` command from the message.
 7. For a valetkey site, never fetch its pages or files with other tools, such as `curl`, `wget`,
    a web fetch tool or another browser. That goes around the containment. If valetkey cannot do
-   it, say so and stop.
+   it, say so and stop. To save a picture or file, call `browser_snapshot` with `images` set to
+   list pictures with their addresses, then `browser_save` with an address or an element reference.
+   Saved files land in the site's downloads folder.
 8. When the task is done, call `browser_close` for the site. The login stays saved.

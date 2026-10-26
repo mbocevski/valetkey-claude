@@ -24,6 +24,7 @@
     { "name": "browser_type", "description": "Fill in a field." },
     { "name": "browser_navigate", "description": "Go to an address on an allowed host." },
     { "name": "browser_downloads", "description": "List the files the browser has saved." },
+    { "name": "browser_save", "description": "Save a picture, a video or a linked file into the site's downloads folder." },
     { "name": "browser_screenshot", "description": "Take an image of the page." },
     { "name": "browser_allow", "description": "Ask the person to let the site reach one more host." },
     { "name": "browser_close", "description": "End the site's browser. The login stays saved." }
