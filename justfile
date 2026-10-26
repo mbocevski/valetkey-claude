@@ -8,6 +8,19 @@ check:
     jq empty .claude-plugin/plugin.json .claude-plugin/marketplace.json mcpb/manifest.json
     shellcheck bin/* tests/*.sh
     shfmt -d bin/* tests/*.sh
+    ruff check tools
+    ruff format --check tools
+
+# Copy the tool names and the first sentence of each description of a valetkey checkout into the
+# bundle manifest.
+sync-tools checkout="~/dev/valetkey":
+    #!/usr/bin/env sh
+    set -eu
+    checkout="{{ checkout }}"
+    case "$checkout" in "~/"*) checkout="$HOME/${checkout#"~/"}" ;; esac
+    tools=$("$checkout/.venv/bin/python" tools/dump_tools.py)
+    jq --argjson tools "$tools" '.tools = $tools' mcpb/manifest.json > mcpb/manifest.json.new
+    mv mcpb/manifest.json.new mcpb/manifest.json
 
 # Build the Claude Desktop bundle into dist/ and validate it.
 mcpb:

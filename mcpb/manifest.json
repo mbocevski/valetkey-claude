@@ -5,7 +5,9 @@
   "version": "0.1.0",
   "description": "A browser that is logged in to one site and can reach only the hosts that site needs, through valetkey.",
   "long_description": "Connects Claude Desktop to valetkey, which must be installed on the same Linux machine. The agent gets a headless browser signed in to one site, contained by a network namespace and a proxy that allows only the hosts that site needs.",
-  "author": { "name": "valetkey" },
+  "author": {
+    "name": "valetkey"
+  },
   "license": "Apache-2.0",
   "server": {
     "type": "binary",
@@ -16,19 +18,62 @@
     }
   },
   "tools": [
-    { "name": "browser_sites", "description": "List the sites that are set up and their state." },
-    { "name": "browser_login", "description": "Open a login window so the person can sign in to a site." },
-    { "name": "browser_open", "description": "Start the signed-in browser for a site." },
-    { "name": "browser_snapshot", "description": "Read the page as a text tree." },
-    { "name": "browser_click", "description": "Click an element on the page." },
-    { "name": "browser_type", "description": "Fill in a field." },
-    { "name": "browser_navigate", "description": "Go to an address on an allowed host." },
-    { "name": "browser_downloads", "description": "List the files the browser has saved." },
-    { "name": "browser_save", "description": "Save a picture, a video or a linked file into the site's downloads folder." },
-    { "name": "browser_screenshot", "description": "Take an image of the page." },
-    { "name": "browser_allow", "description": "Ask the person to let the site reach more hosts, up to ten at once." },
-    { "name": "browser_deny", "description": "Ask the person to stop the site reaching hosts it reaches now, up to ten at once." },
-    { "name": "browser_close", "description": "End the site's browser. The login stays saved." }
+    {
+      "name": "browser_sites",
+      "description": "List the sites the person has set up: each one's state (no session, login window open or session running), when they last logged in, the first few hosts it may reach and the ones left out or denied, and what the last login learned (shown once)."
+    },
+    {
+      "name": "browser_login",
+      "description": "Open a login window on the person's own screen so they can sign in to a site."
+    },
+    {
+      "name": "browser_open",
+      "description": "Start the signed-in browser for a site, or join the one already running, and load its start page."
+    },
+    {
+      "name": "browser_snapshot",
+      "description": "Read the page: a text tree of what is on it, with its text (paragraphs, lists, tables) and references (e1, e2, ...) for the elements you can click or type into."
+    },
+    {
+      "name": "browser_click",
+      "description": "Click an element, named by its reference (e3) from your latest browser_snapshot, or by its visible text with an optional role."
+    },
+    {
+      "name": "browser_type",
+      "description": "Replace the contents of a field, by its reference from the latest browser_snapshot."
+    },
+    {
+      "name": "browser_navigate",
+      "description": "Go to a URL in the site's browser."
+    },
+    {
+      "name": "browser_save",
+      "description": "Save a picture, a video or a linked file from the page into the site's downloads folder, so the person can have it."
+    },
+    {
+      "name": "browser_downloads",
+      "description": "List the files this site's browser has downloaded, with their size and a type guessed from the content, and downloads still running."
+    },
+    {
+      "name": "browser_screenshot",
+      "description": "Take a screenshot of the page and return it as an image."
+    },
+    {
+      "name": "browser_allow",
+      "description": "Ask the person to let a site's browser reach more hosts."
+    },
+    {
+      "name": "browser_deny",
+      "description": "Ask the person to stop a site's browser reaching hosts it reaches now."
+    },
+    {
+      "name": "browser_close",
+      "description": "End the site's browser."
+    }
   ],
-  "compatibility": { "platforms": ["linux"] }
+  "compatibility": {
+    "platforms": [
+      "linux"
+    ]
+  }
 }
