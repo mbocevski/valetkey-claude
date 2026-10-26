@@ -29,4 +29,7 @@ The browser is signed in as the user, on one site, and can reach only the hosts 
    exact host name, with a real reason the user can judge. Only the user can say yes. If the
    answer is `denied`, never ask for that host again. If it is `could_not_ask`, give the user the
    `valetkey allow` command from the message.
-7. When the task is done, call `browser_close` for the site. The login stays saved.
+7. For a valetkey site, never fetch its pages or files with other tools, such as `curl`, `wget`,
+   a web fetch tool or another browser. That goes around the containment. If valetkey cannot do
+   it, say so and stop.
+8. When the task is done, call `browser_close` for the site. The login stays saved.
