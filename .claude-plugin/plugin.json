@@ -1,0 +1,11 @@
+{
+  "name": "valetkey",
+  "version": "0.1.0",
+  "description": "A browser that is logged in to one site and can reach only the hosts that site needs, through valetkey.",
+  "license": "Apache-2.0",
+  "mcpServers": {
+    "valetkey": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/bin/valetkey-mcp"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+#!/bin/sh
+# SPDX-License-Identifier: Apache-2.0
+# Start the valetkey MCP server. Claude Code may run with a PATH that lacks
+# ~/.local/bin (where `uv tool install` puts valetkey), so look there too.
+PATH="$PATH:$HOME/.local/bin:/usr/bin"
+if ! command -v valetkey >/dev/null 2>&1; then
+	echo "valetkey is not installed. Install it from a valetkey checkout: Arch: cd packaging/arch && makepkg -si; elsewhere: uv tool install ." >&2
+	exit 127
+fi
+exec valetkey mcp "$@"

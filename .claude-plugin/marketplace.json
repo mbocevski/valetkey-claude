@@ -1,0 +1,11 @@
+{
+  "name": "valetkey-plugins",
+  "owner": { "name": "valetkey" },
+  "plugins": [
+    {
+      "name": "valetkey",
+      "source": "./",
+      "description": "A browser that is logged in to one site and can reach only the hosts that site needs, through valetkey."
+    }
+  ]
+}
