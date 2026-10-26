@@ -21,6 +21,10 @@ Restart Claude Code. The `valetkey` server and its `browser_*` tools are then av
 The plugin starts valetkey through `bin/valetkey-mcp`. It looks for `valetkey` on `PATH`, then in
 `~/.local/bin` and `/usr/bin`, and says how to install it if it finds none.
 
+The plugin adds a skill that tells the agent how to use the browser tools safely, and a
+`/valetkey-status` command that shows the open sessions and the sites you have set up. The command
+asks for the status as JSON, which leaves out remote login links.
+
 ## License
 
 Apache License 2.0. See [LICENSE](LICENSE).
