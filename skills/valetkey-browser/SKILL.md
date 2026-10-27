@@ -21,8 +21,10 @@ The browser is signed in as the user, on one site, and can reach only the hosts 
    read the page, call `browser_snapshot`: it returns the page text and a reference for each
    element to act on. Set `interactive` for a smaller view of only those elements. To read one
    part, such as a form or a table, set `selector` to a CSS selector: its refs are added to the
-   ones you have. A long page is cut, and the end says so and gives the `start_line` to read on
-   from. `browser_navigate` also returns just the title. Use `browser_click`, `browser_type` and
+   ones you have. It shows the first element that matches, and the `Scope:` line says when there
+   are more, so choose the element that holds several items, such as a list or a table, to see
+   them all. A long page is cut, and the end says so and gives the `start_line` to read on from.
+   `browser_navigate` also returns just the title. Use `browser_click`, `browser_type` and
    `browser_navigate` to act, and `browser_downloads` to list saved files.
    After you have read a page, the result of `browser_click` and `browser_type` ends by saying
    what changed on it: that nothing did, the lines taken out and put in, that it changed a lot,
