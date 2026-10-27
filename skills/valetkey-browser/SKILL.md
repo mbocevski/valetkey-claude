@@ -22,6 +22,11 @@ The browser is signed in as the user, on one site, and can reach only the hosts 
    element to act on. Set `interactive` for a smaller view of only those elements. A long page is
    cut, and the end says so. `browser_navigate` also returns just the title. Use `browser_click`,
    `browser_type` and `browser_navigate` to act, and `browser_downloads` to list saved files.
+   After you have read a page, the result of `browser_click` and `browser_type` ends by saying
+   what changed on it: that nothing did, the lines taken out and put in, that it changed a lot,
+   or the title of a new page. Read that before you call `browser_snapshot` again, and take a
+   new snapshot only when it says to, or when you need text it does not show. References in the
+   changed lines work at once.
    A session unused for 15 minutes is closed. The next call then says so and to call
    `browser_open`. That is not an error: call `browser_open` again at once, without asking.
 3. If `browser_open` says the login expired, or a page shows a login screen, call `browser_login`
