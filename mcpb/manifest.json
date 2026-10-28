@@ -67,6 +67,10 @@
       "description": "Ask the person to stop a site's browser reaching hosts it reaches now."
     },
     {
+      "name": "browser_microphone",
+      "description": "Ask the person to turn on the microphone for a site, so that its browser can record audio for a call."
+    },
+    {
       "name": "browser_close",
       "description": "End the site's browser."
     }

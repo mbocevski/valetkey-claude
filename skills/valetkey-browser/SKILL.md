@@ -49,9 +49,16 @@ The browser is signed in as the user, on one site, and can reach only the hosts 
 7. Call `browser_deny` only when the user asks to block a host, or a host looks wrong. Never use
    it to work around anything. Ask for exact host names, with a real reason. If a host's result is
    `declined`, never ask for that host again.
-8. For a valetkey site, never fetch its pages or files with other tools, such as `curl`, `wget`,
+8. Call `browser_microphone` only when the task needs the microphone, such as joining a call, with
+   the site and a reason the user can judge. Only the user can turn it on, and a site's browser
+   has no audio until they do. It applies to browser sessions that start afterwards: after
+   `allowed`, call `browser_close` for the site and then `browser_open`, or the running browser
+   still has no microphone. If it is `denied`, do not ask again unless the user asks you to. If
+   it is `expired`, you may ask again. If it is `could_not_ask`, give the user the
+   `valetkey mic SITE on` command from the message.
+9. For a valetkey site, never fetch its pages or files with other tools, such as `curl`, `wget`,
    a web fetch tool or another browser. That goes around the containment. If valetkey cannot do
    it, say so and stop. To save a picture or file, call `browser_snapshot` with `images` set to
    list pictures with their addresses, then `browser_save` with an address or an element reference.
    Saved files land in the site's downloads folder.
-9. When the task is done, call `browser_close` for the site. The login stays saved.
+10. When the task is done, call `browser_close` for the site. The login stays saved.
