@@ -36,7 +36,7 @@
     },
     {
       "name": "browser_click",
-      "description": "Click an element, named by its reference (e3) from your latest browser_snapshot, or by its visible text with an optional role."
+      "description": "Click an element, named by its reference (e3) from your latest browser_snapshot or by its visible text; give hover to hover over something first, and exact to match a name exactly."
     },
     {
       "name": "browser_type",

@@ -25,7 +25,9 @@ The browser is signed in as the user, on one site, and can reach only the hosts 
    are more, so choose the element that holds several items, such as a list or a table, to see
    them all. A long page is cut, and the end says so and gives the `start_line` to read on from.
    `browser_navigate` also returns just the title. Use `browser_click`, `browser_type` and
-   `browser_navigate` to act, and `browser_downloads` to list saved files.
+   `browser_navigate` to act, and `browser_downloads` to list saved files. When a row's action
+   shows only on hover, pass `hover` (the texts to hover over) to `browser_click` instead of a
+   separate step. Set `exact: true` where a name that merely holds the text would be wrong.
    After you have read a page, the result of `browser_click` and `browser_type` ends by saying
    what changed on it: that nothing did, the lines taken out and put in, that it changed a lot,
    or the title of a new page. Read that before you call `browser_snapshot` again, and take a
