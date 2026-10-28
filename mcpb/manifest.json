@@ -59,6 +59,10 @@
       "description": "Take a screenshot of the page and return it as an image."
     },
     {
+      "name": "browser_console",
+      "description": "Show what went wrong inside the page, for a page that stalls, stays blank or does not react: its uncaught errors and unhandled rejections (with the stack and line), the console's warnings and errors, and the requests that failed, got no response or were answered with a status of 400 or more (including ones to a host that was refused)."
+    },
+    {
       "name": "browser_allow",
       "description": "Ask the person to let a site's browser reach more hosts."
     },

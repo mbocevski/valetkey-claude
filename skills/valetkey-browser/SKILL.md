@@ -33,6 +33,8 @@ The browser is signed in as the user, on one site, and can reach only the hosts 
    or the title of a new page. Read that before you call `browser_snapshot` again, and take a
    new snapshot only when it says to, or when you need text it does not show. References in the
    changed lines work at once.
+   If a page stalls or stays blank and no host was refused, call `browser_console` before
+   guessing: it shows the page's errors, its console warnings and its failed requests.
    A session unused for 15 minutes is closed. The next call then says so and to call
    `browser_open`. That is not an error: call `browser_open` again at once, without asking.
 3. If `browser_open` says the login expired, or a page shows a login screen, call `browser_login`
